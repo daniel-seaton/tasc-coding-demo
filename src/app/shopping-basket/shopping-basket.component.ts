@@ -13,9 +13,6 @@ export class ShoppingBasketComponent implements OnInit {
   salesTax: number = 0;
   total: number = 0;
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     this.basket.items.forEach((item: Item) => {
       this.salesTax += item.tax;

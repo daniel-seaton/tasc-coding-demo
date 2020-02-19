@@ -18,13 +18,14 @@ export class Item {
         this.quantity = item.quantity;
         this.name = item.name;
         this.price = item.price;
-        this.isImport = item.isImport;
-        this.taxExempt = item.taxExempt;
+        this.isImport = item.isImport ?? false;
+        this.taxExempt = item.taxExempt ?? false;
 
         if(!this.taxExempt){
             this.tax += this.roundToNearestNickel(this.price * salesTax);
         }
         if(this.isImport){
+            console.log(this.name);
             this.tax += this.roundToNearestNickel(this.price * importDuty);
         }
 

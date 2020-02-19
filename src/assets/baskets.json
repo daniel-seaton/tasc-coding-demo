@@ -29,13 +29,13 @@
                 "quantity": 1,
                 "price": 11.00,
                 "taxExempt": true,
-                "isImported": true
+                "isImport": true
             },
             {
                 "name": "Vespa", 
                 "quantity": 1,
                 "price": 15001.25,
-                "isImported": true
+                "isImport": true
             }
         ]
     },
@@ -47,10 +47,10 @@
                 "quantity": 1,
                 "price": 75.99,
                 "taxExempt": true,
-                "isImported": true
+                "isImport": true
             },
             {
-                "name": "Disman", 
+                "name": "Discman", 
                 "quantity": 1,
                 "price": 55
             },
@@ -58,7 +58,7 @@
                 "name": "Bottle of Wine", 
                 "quantity": 1,
                 "price": 10,
-                "isImported": true
+                "isImport": true
             },
             {
                 "name": "300# Bag of Fair-Trade Coffee", 
