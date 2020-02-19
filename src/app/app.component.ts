@@ -15,8 +15,8 @@ export class AppComponent {
   private basketJsonPath = "assets/baskets.json" 
 
   constructor(private httpClient: HttpClient){
-    this.getJSON().subscribe(basketJson => {
-      Object.assign(this.baskets, basketJson);
+    this.getJSON().subscribe(basketData => {
+      this.baskets = basketData.map((basket) => new Basket(basket))
      });
    }
    public getJSON(): Observable<any> {

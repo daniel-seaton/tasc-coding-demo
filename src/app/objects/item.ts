@@ -13,24 +13,19 @@ export class Item {
     public tax: number = 0.0;
     public totalPrice: number;
 
-    constructor(
-        quantity: number,
-        name: string, 
-        price: number,
-        isImport: boolean = false,
-        taxExempt: boolean = false)
+    constructor(item: Item)
     {
-        this.quantity = quantity;
-        this.name = name;
-        this.price = price;
-        this.isImport = isImport;
-        this.taxExempt = taxExempt;
+        this.quantity = item.quantity;
+        this.name = item.name;
+        this.price = item.price;
+        this.isImport = item.isImport;
+        this.taxExempt = item.taxExempt;
 
-        if(!taxExempt){
-            this.tax += this.roundToNearestNickel(price * salesTax);
+        if(!this.taxExempt){
+            this.tax += this.roundToNearestNickel(this.price * salesTax);
         }
-        if(isImport){
-            this.tax += this.roundToNearestNickel(price * importDuty);
+        if(this.isImport){
+            this.tax += this.roundToNearestNickel(this.price * importDuty);
         }
 
         this.totalPrice = this.price + this.tax;
