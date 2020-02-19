@@ -3,13 +3,7 @@
 </div>
 
 <div class="content" role="main">
-<div class="column">
-    <app-shopping-basket header="Shopping Basket 1" [items]="basketOne"></app-shopping-basket>
-</div>
-<div class="column">
-  <app-shopping-basket header="Shopping Basket 2" [items]="basketTwo"></app-shopping-basket>
-</div>
- <div class="column"> 
-<app-shopping-basket header="Shopping Basket 3" [items]="basketThree"></app-shopping-basket>
-</div>
-</div>
+  <div *ngFor="let basket of baskets" class="column">
+      <app-shopping-basket [basket]="basket"></app-shopping-basket>
+  </div>
+</div> >

@@ -1,5 +1,5 @@
-<h3>{{header}}</h3>
-<div *ngFor="let item of items" class="item-row">
+<h3>{{basket.header}}</h3>
+<div *ngFor="let item of basket.items" class="item-row">
     <span>{{item.quantity}} - {{item.name}}</span>
     <span>${{item.totalPrice | number:'.2'}}</span>
 </div>

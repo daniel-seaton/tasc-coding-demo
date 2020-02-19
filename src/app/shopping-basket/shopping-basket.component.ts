@@ -1,13 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Item } from '../objects/item';
+import { Basket } from '../objects/basket';
+
 @Component({
   selector: 'app-shopping-basket',
   templateUrl: './shopping-basket.component.html',
   styleUrls: ['./shopping-basket.component.css']
 })
 export class ShoppingBasketComponent implements OnInit {
-  @Input() header: string;
-  @Input() items: Item[];
+  @Input() basket: Basket;
 
   salesTax: number = 0;
   total: number = 0;
@@ -16,7 +17,7 @@ export class ShoppingBasketComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.items.forEach(item => {
+    this.basket.items.forEach((item: Item) => {
       this.salesTax += item.tax;
       this.total += item.totalPrice;
     })

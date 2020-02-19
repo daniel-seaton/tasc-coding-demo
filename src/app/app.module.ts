@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ShoppingBasketComponent } from './shopping-basket/shopping-basket.component';
 
@@ -10,6 +10,7 @@ import { ShoppingBasketComponent } from './shopping-basket/shopping-basket.compo
     ShoppingBasketComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule
   ],
   providers: [],
