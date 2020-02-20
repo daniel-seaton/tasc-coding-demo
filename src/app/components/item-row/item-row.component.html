@@ -1,0 +1,4 @@
+<div class="item-row" [ngStyle]="style">
+    <span>{{item.quantity}} - {{item.name}}</span>
+    <span>${{item.totalPrice | number:'.2'}}</span>
+</div>

@@ -1,25 +1,22 @@
-import { Component } from '@angular/core';
-import {Basket} from './objects/Basket';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { IAppState } from './store/state/app.state';
+import { GetBaskets } from './store/actions/basket.actions';
+import { selectBasketList } from './store/selectors/basket.selector';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'tasc-coding-demo';
-  baskets: Basket[] = [];
+  baskets$ = this._store.pipe(select(selectBasketList));
+  
+  constructor(private _store: Store<IAppState>){
+  }
 
-  private basketJsonPath = "assets/baskets.json" 
-
-  constructor(private httpClient: HttpClient){
-    this.getJSON().subscribe(basketData => {
-      this.baskets = basketData.map((basket) => new Basket(basket))
-     });
-   }
-   public getJSON(): Observable<any> {
-     return this.httpClient.get(this.basketJsonPath);
-   }
+  ngOnInit(){
+    this._store.dispatch(new GetBaskets());
+  }
 }

@@ -1,0 +1,13 @@
+.full-width {
+    width: 100%
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.divider-container {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

@@ -1,0 +1,17 @@
+<mat-card>
+    <h3>{{basket.title}}</h3>
+    <div *ngFor="let item of items; index as i" class="full-width">
+        <app-item-row [item]="item" rowIndex="{{i}}"></app-item-row>
+    </div>
+    <div class="divider-container">
+        <mat-divider></mat-divider>
+    </div>
+    <div class="full-width space-between">
+        <span>Sales Tax: </span>
+        <span>${{salesTax | number:'.2'}}</span>
+    </div>
+    <div class="full-width space-between">
+        <span>Total: </span>
+        <span>${{total | number:'.2'}}</span>
+    </div>
+</mat-card>

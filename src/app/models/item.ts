@@ -1,19 +1,25 @@
-import { Optional } from '@angular/core';
-
 var salesTax = .1; //10%
 var importDuty = .05; //5%
 
-export class Item { 
-    public quantity: number = 1;
-    public name: string;
-    public price: number;
-    public isImport: boolean;
-    public taxExempt: boolean;
+export interface IItem { 
+    quantity: number;
+    name: string;
+    price: number;
+    isImport: boolean;
+    taxExempt: boolean;
+}
 
-    public tax: number = 0.0;
-    public totalPrice: number;
+export class Item implements IItem{
+    quantity: number = 1;
+    name: string;
+    price: number;
+    isImport: boolean;
+    taxExempt: boolean;
 
-    constructor(item: Item)
+    tax: number = 0.0;
+    totalPrice: number;
+
+    constructor(item: IItem)
     {
         this.quantity = item.quantity;
         this.name = item.name;
@@ -25,7 +31,6 @@ export class Item {
             this.tax += this.roundToNearestNickel(this.price * salesTax);
         }
         if(this.isImport){
-            console.log(this.name);
             this.tax += this.roundToNearestNickel(this.price * importDuty);
         }
 

@@ -2,8 +2,4 @@
   <span style="padding-left: 10px;">Tasc Coding Challenge</span>
 </div>
 
-<div class="content" role="main">
-  <div *ngFor="let basket of baskets" class="column">
-      <app-shopping-basket [basket]="basket"></app-shopping-basket>
-  </div>
-</div> >
+<app-body [baskets]="(baskets$ | async)"></app-body>
